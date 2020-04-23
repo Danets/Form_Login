@@ -16,75 +16,93 @@
   .form-login {
     width: 100%;
   }
-  .form-group {
-    position: relative;
-    & + .form-group::after {
-      content: "";
-      display: block;
-      position: absolute;
-      top: 80px;
-      width: 110%;
-      margin-left: -10px;
-      height: 1px;
-      background-color: #000;
-    }
-    & + .form-group::before {
-      content: "";
-      display: block;
-      position: absolute;
-      // top: 80px;
-      width: 110%;
-      margin-left: -10px;
-      height: 1px;
-      background-color: #000;
-    }
-    .form-control {
-      display: block;
-      width: 100%;
-      box-sizing: border-box;
-      padding: 30px;
-      border: none;
-      // border-bottom: 1px solid #ccc;
-      &:active,
-      &:focus {
-        font-weight: bold;
-        background-color: #fff;
-      }
+}
+
+.form-group {
+  position: relative;
+  & + .form-group::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 80px;
+    width: 110%;
+    margin-left: -10px;
+    height: 1px;
+    background-color: #000;
+  }
+  & + .form-group::before {
+    content: "";
+    display: block;
+    position: absolute;
+    // top: 80px;
+    width: 110%;
+    margin-left: -10px;
+    height: 1px;
+    background-color: #000;
+  }
+// Inputs 
+  .form-control {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 30px;
+    border: none;
+    // border-bottom: 1px solid #ccc;
+    &:active,
+    &:focus {
+      font-weight: bold;
     }
   }
-  .far,
+}
+// Icons
+.far,
+.fas {
+  position: absolute;
+  top: 34px;
+  left: 10px;
+  z-index: 100;
+}
+.fas.fa-eye-slash,
+.fas.fa-check {
+  left: 90%;
+}
+.invalid{
+  display: none;
+}
+
+.action-group {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.forgot-pass {
+  display: block;
+  margin-left: 30px;
+  color: #000;
   .fas {
     position: absolute;
-    top: 34px;
+    top: 14px;
     left: 10px;
-    z-index: 100;
   }
-  .fas.fa-eye-slash {
-    left: 90%;
+}
+// Button
+.btn {
+  padding: 6px;
+  width: 30%;
+  outline: none;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 30px;
+  &.success {
+    background-color: #3bda3b;
+    color: #fff;
   }
-  .action-group {
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 10px;
-  }
-  .forgot-pass {
-    display: block;
-    margin-left: 30px;
-    color: #000;
-    .fas {
-      position: absolute;
-      top: 14px;
-      left: 10px;
-    }
-  }
-  .btn {
-    padding: 6px;
-    width: 20%;
-    outline: none;
-    border: 1px solid #ccc;
-    border-radius: 30px;
-  }
+  &.danger {
+    background-color: #e05454;
+    color: #fff;
+  }  
 }
