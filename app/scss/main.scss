@@ -40,13 +40,14 @@
     height: 1px;
     background-color: #000;
   }
-// Inputs 
+  // Inputs
   .form-control {
     display: block;
     width: 100%;
     box-sizing: border-box;
     padding: 30px;
     border: none;
+    outline: none;
     // border-bottom: 1px solid #ccc;
     &:active,
     &:focus {
@@ -66,7 +67,7 @@
 .fas.fa-check {
   left: 90%;
 }
-.invalid{
+.invalid {
   display: none;
 }
 
@@ -104,5 +105,15 @@
   &.danger {
     background-color: #e05454;
     color: #fff;
-  }  
+  }
+  @media (min-width: 992px) {
+    width: 10%;
+    margin-right: 70px;
+  }
+}
+
+.errorEmail,
+.errorPass {
+  display: block;
+  color: #e05454;
 }
