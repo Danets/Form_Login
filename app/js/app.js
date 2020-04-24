@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
       email.nextElementSibling.firstElementChild.classList.remove("fa-times");
       email.nextElementSibling.firstElementChild.style.color = "green";
       emailValid = true;
-      errorEmail.style.display = "none";
+      errorEmail.innerHTML = "";
     } else {
       email.nextElementSibling.classList.remove("invalid");
       email.nextElementSibling.firstElementChild.classList.remove("fa-check");
@@ -41,13 +41,13 @@ document.addEventListener("DOMContentLoaded", function () {
       password.setAttribute("type", "text");
       password.value = value;
       passValid = true;
-      errorPass.style.display = "none";
+      errorPass.innerHTML = "";
     } else {
       password.previousElementSibling.classList.add("fa-lock");
       password.previousElementSibling.classList.remove("fa-unlock");
       password.nextElementSibling.style.color = "red";
       passValid = false;
-      errorPass.innerHTML = "Password has to contain minimum 6 characters";
+      errorPass.innerHTML = "Password has to contain minimum 6 characters and 1 number";
     }
   }
 
