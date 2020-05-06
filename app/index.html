@@ -17,49 +17,76 @@
   <body>
     <!-- CUSTOM HTML -->
     <main class="container">
-      <img class="logo" src="images/src/logo.svg" width="58px" height="44px" />
-      <div class="container-form" data-controller="form">
+      <img
+        class="logo"
+        alt="logo"
+        src="images/src/logo.svg"
+        width="58px"
+        height="44px"
+      />
+
+      <div
+        class="container-form"
+        data-controller="form"
+        data-form-invalid-btn="btn--invalid"
+        data-form-left-icon="icon icon--left fa fa-unlock"
+        data-form-right-icon="icon icon--right fa fa-eye-slash"
+      >
         <h1 class="title" data-target="form.name">Welcome</h1>
-        <form class="form-login">
-          <div class="form-group">
-            <i class="fa fa-user-o"></i>
+
+        <form class="form" data-action="form#login">
+          <div class="form__group">
+            <i class="icon icon--left fa fa-user-o" aria-hidden="true"></i>
             <input
               data-target="form.email"
+              data-action="input->form#customValidity"
               type="email"
               placeholder="Email address"
               name="email"
-              class="form-control"
-              id="email"
+              class="form__control form__control--email"
               required
+              minlength="6"
+              autocomplete="off"
             />
-            <span class="invalid">
-              <i class="fa fa-check"></i>
-            </span>
-            <span class="errorEmail"></span>
+            <i class="icon icon--right fa fa-check" aria-hidden="true"></i>
           </div>
-          <div class="form-group">
-            <i class="fa fa-lock"></i>
+
+          <div class="form__group">
+            <i
+              data-target="form.iconLeft"
+              class="icon icon--left fa fa-lock"
+              aria-hidden="true"
+            ></i>
             <input
               data-target="form.pass"
+              data-action="input->form#customValidity"
               type="password"
               placeholder="Password"
               name="password"
-              class="form-control"
-              id="password"
+              class="form__control"
               required
               minlength="6"
             />
-            <i class="fa fa-eye"></i>
-            <span class="errorPass"></span>
+            <i
+              data-target="form.iconRight"
+              data-action="mousedown->form#showPass
+               mouseup->form#hidePass
+                mouseleave->form#hidePass
+                 touchstart->form#showPass
+                  touchend->form#hidePass"
+              class="icon icon--right fa fa-eye"
+              aria-hidden="true"
+            ></i>
           </div>
-          <div class="action-group">
-            <a class="forgot-pass" href="#"
-              ><i class="fa fa-exclamation-circle"></i>Forgot Password</a
+
+          <div class="form__actiongroup">
+            <a class="form__link" href="#"
+              ><i class="fa fa-exclamation-circle" aria-hidden="true"></i>Forgot
+              Password</a
             >
             <input
               data-target="form.submit"
               type="submit"
-              data-action="form#login"
               class="btn"
               value="Login"
             />
@@ -69,12 +96,14 @@
     </main>
 
     <footer class="footer">
-      <a class="link" href="#">
-        <i class="fa fa-globe"></i>
-      </a>
-      <a class="link" href="/signup.html">
-        New user<i class="fa fa-sign-in"></i>
-      </a>
+      <div class="container-footer">
+        <a class="link" href="#">
+          <i class="fa fa-globe" aria-hidden="true"></i>
+        </a>
+        <a class="link" href="/signup.html">
+          New user<i class="fa fa-sign-in" aria-hidden="true"></i>
+        </a>
+      </div>
     </footer>
   </body>
 </html>
