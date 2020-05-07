@@ -15,7 +15,6 @@
   </head>
 
   <body>
-    <!-- CUSTOM HTML -->
     <main class="container">
       <img
         class="logo"
@@ -29,12 +28,13 @@
         class="container-form"
         data-controller="form"
         data-form-invalid-btn="btn--invalid"
+        data-form-valid-btn="btn--valid"
         data-form-left-icon="icon icon--left fa fa-unlock"
         data-form-right-icon="icon icon--right fa fa-eye-slash"
       >
         <h1 class="title" data-target="form.name">Welcome</h1>
 
-        <form class="form" data-action="form#login">
+        <form class="form" data-action="form#login" method="POST">
           <div class="form__group">
             <i class="icon icon--left fa fa-user-o" aria-hidden="true"></i>
             <input
@@ -46,9 +46,13 @@
               class="form__control form__control--email"
               required
               minlength="6"
-              autocomplete="off"
+              aria-label="email"
             />
-            <i class="icon icon--right fa fa-check" aria-hidden="true"></i>
+            <i
+              data-target="form.iconCheck"
+              class="icon icon--right fa"
+              aria-hidden="true"
+            ></i>
           </div>
 
           <div class="form__group">
@@ -66,11 +70,12 @@
               class="form__control"
               required
               minlength="6"
+              aria-label="Password"
+              autocomplete="on"
             />
             <i
               data-target="form.iconRight"
-              data-action="mousedown->form#showPass
-               mouseup->form#hidePass
+              data-action="mouseover->form#showPass
                 mouseleave->form#hidePass
                  touchstart->form#showPass
                   touchend->form#hidePass"
@@ -88,7 +93,8 @@
               data-target="form.submit"
               type="submit"
               class="btn"
-              value="Login"
+              value="Log in"
+              aria-label="Log in"
             />
           </div>
         </form>

@@ -2,7 +2,7 @@
 <html lang="">
   <head>
     <meta charset="utf-8" />
-    <title>Signup Form</title>
+    <title>Login Form</title>
     <meta name="description" content="Login Form" />
     <meta name="viewport" content="width=device-width" />
     <script src="https://unpkg.com/stimulus/dist/stimulus.umd.js"></script>
@@ -15,65 +15,94 @@
   </head>
 
   <body>
-    <!-- CUSTOM HTML -->
     <main class="container">
-      <div class="container-form">
-        <img
-          class="logo"
-          src="images/src/logo.svg"
-          width="58px"
-          height="44px"
-        />
-        <h1 class="title">Welcome</h1>
+      <img
+        class="logo"
+        alt="logo"
+        src="images/src/logo.svg"
+        width="58px"
+        height="44px"
+      />
 
-        <form class="form-login">
-          <div class="form-group">
-            <i class="fa fa-user-o"></i>
+      <div
+        class="container-form"
+        data-controller="form signup"
+        data-form-invalid-btn="btn--invalid"
+        data-form-left-icon="icon icon--left fa fa-unlock"
+        data-form-right-icon="icon icon--right fa fa-eye-slash"
+      >
+        <h1 class="title" data-target="signup.name">Welcome</h1>
+
+        <form class="form" data-action="signup#signup" method="POST">
+          <div class="form__group">
+            <i class="icon icon--left fa fa-user-o" aria-hidden="true"></i>
             <input
+              data-target="signup.email"
               type="email"
               placeholder="Email address"
               name="email"
-              class="form-control"
-              id="email"
+              class="form__control form__control--email"
               required
+              minlength="6"
+              aria-label="email"
             />
-            <span class="invalid">
-              <i class="fa fa-check"></i>
-            </span>
-            <span class="errorEmail"></span>
+            <i class="icon icon--right fa" aria-hidden="true"></i>
           </div>
-          <div class="form-group">
-            <i class="fa fa-lock"></i>
+
+          <div class="form__group">
+            <i
+              data-target="form.iconLeft"
+              class="icon icon--left fa fa-lock"
+              aria-hidden="true"
+            ></i>
             <input
+              data-target="form.pass signup.pass"
               type="password"
               placeholder="Password"
               name="password"
-              class="form-control"
-              id="password"
+              class="form__control"
               required
               minlength="6"
+              aria-label="Password"
+              autocomplete="on"
             />
-            <i class="fa fa-eye"></i>
-            <span class="errorPass"></span>
+            <i
+              data-target="form.iconRight"
+              data-action="mouseover->form#showPass
+                mouseleave->form#hidePass
+                 touchstart->form#showPass
+                  touchend->form#hidePass"
+              class="icon icon--right fa fa-eye"
+              aria-hidden="true"
+            ></i>
           </div>
-          <div class="action-group">
-            <a class="forgot-pass" href="#"
-              ><i class="fa fa-exclamation-circle"></i>Forgot Password</a
+
+          <div class="form__actiongroup">
+            <a class="form__link" href="#"
+              ><i class="fa fa-exclamation-circle" aria-hidden="true"></i>Forgot
+              Password</a
             >
-            <input type="submit" disabled class="btn" value="Login" />
+            <input
+              data-target="signup.submit"
+              type="submit"
+              class="btn"
+              value="Signup"
+              aria-label="Signup"
+            />
           </div>
         </form>
       </div>
     </main>
 
     <footer class="footer">
+      <div class="container-footer">
         <a class="link" href="#">
-          <i class="fa fa-globe"></i>
+          <i class="fa fa-globe" aria-hidden="true"></i>
         </a>
         <a class="link" href="/">
-            Login<i class="fa fa-sign-in"></i>
+          Log in<i class="fa fa-sign-in" aria-hidden="true"></i>
         </a>
+      </div>
     </footer>
-
   </body>
 </html>
