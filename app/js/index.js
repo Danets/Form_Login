@@ -1,4 +1,5 @@
 (() => {
+  // Turbolinks.start();
   const application = Stimulus.Application.start();
 
   application.register(
